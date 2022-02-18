@@ -66,7 +66,11 @@ module.exports={version:"0.26.0"};
 "use strict";var e=require("./utils"),r=require("./helpers/bind"),i=require("./core/Axios"),n=require("./core/mergeConfig"),o=require("./defaults");function u(o){var s=new i(o),t=r(i.prototype.request,s);return e.extend(t,i.prototype,s),e.extend(t,s),t.create=function(e){return u(n(o,e))},t}var s=u(o);s.Axios=i,s.Cancel=require("./cancel/Cancel"),s.CancelToken=require("./cancel/CancelToken"),s.isCancel=require("./cancel/isCancel"),s.VERSION=require("./env/data").version,s.all=function(e){return Promise.all(e)},s.spread=require("./helpers/spread"),s.isAxiosError=require("./helpers/isAxiosError"),module.exports=s,module.exports.default=s;
 },{"./utils":"S1cf","./helpers/bind":"EDTP","./core/Axios":"OvAf","./core/mergeConfig":"OHvn","./defaults":"BXyq","./cancel/Cancel":"mIKj","./cancel/CancelToken":"tsWd","./cancel/isCancel":"V30M","./env/data":"xNqU","./helpers/spread":"X8jb","./helpers/isAxiosError":"wICU"}],"dZBD":[function(require,module,exports) {
 module.exports=require("./lib/axios");
-},{"./lib/axios":"nUiQ"}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss");var i=require("notiflix/build/notiflix-notify-aio"),e=r(require("axios"));function r(i){return i&&i.__esModule?i:{default:i}}
-},{"./sass/main.scss":"clu1","notiflix/build/notiflix-notify-aio":"MeeU","axios":"dZBD"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-11/src.f3dd23ec.js.map
+},{"./lib/axios":"nUiQ"}],"HxdU":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;const e={pixabayKey:"25766392-01b12b6ed5ab34bc2910d9c3e",pixabayUrl:"https://pixabay.com/api/"};var a=e;exports.default=a;
+},{}],"uJOP":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getImg=o;var e=a(require("axios")),t=a(require("./settings"));function a(e){return e&&e.__esModule?e:{default:e}}const{pixabayKey:r,pixabayUrl:i}=t.default;async function o(t,a,o){return await e.default.get(`${i}?key=${r}'&q=${t}&image_type=photo&orientation=horizontal&safesearch=true&page=${a}&per_page=${o}`)}
+},{"axios":"dZBD","./settings":"HxdU"}],"Focm":[function(require,module,exports) {
+"use strict";require("./sass/main.scss");var i=require("notiflix/build/notiflix-notify-aio"),e=require("./js/imgAPI");let s="cat",t=1;const o=40;(0,e.getImg)().then(console.log);
+},{"./sass/main.scss":"clu1","notiflix/build/notiflix-notify-aio":"MeeU","./js/imgAPI":"uJOP"}]},{},["Focm"], null)
+//# sourceMappingURL=/goit-js-hw-11/src.78c936b3.js.map
