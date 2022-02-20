@@ -1,27 +1,191 @@
-// .example {
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-//     'Open Sans', 'Helvetica Neue', sans-serif;
-//   line-height: 1.5;
-//   background-color: #fff;
-//   color: #424242;
-//   max-width: 960px;
-//   padding: 16px;
-// }
+* {
+  box-sizing: border-box;
+}
 
-// .example code {
-//   font-family: monospace;
-//   font-size: 16px;
-//   font-weight: 700;
-//   background-color: #009688;
-//   color: #fff;
-//   padding: 2px 6px;
-//   border-radius: 2px;
-// }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1em;
+  line-height: 1.5;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  background-image: linear-gradient(200deg, rgba(7, 7, 7, 0.9) 10%, rgba(61, 61, 61, 0.8) 90%);
+}
 
-// .example .background {
-//   height: 240px;
-//   // Путь к изображениям из SASS-файла всегда такой, как из папки css
-//   background-image: url('../images/demo.jpg');
-//   background-size: cover;
-//   background-position: center;
-// }
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.search-container {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  background-color: #2d2d2e;
+  box-shadow: 0 1px 3px rgba(235, 235, 235, 0.12), 0 1px 1px rgba(207, 207, 207, 0.14),
+    0 2px 1px rgba(241, 241, 241, 0.2);
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  width: 20%;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  outline: none;
+  background-color: rgb(248, 248, 248);
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  border: none;
+  background-color: rgb(200, 200, 200);
+
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-form button:hover,
+.search-form button:focus {
+  background-color: rgb(180, 180, 180);
+  transition: all 0.3s;
+}
+
+.gallery-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+}
+
+.gallery,
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  margin-left: -20px;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+.gallery__link {
+  margin-top: 20px;
+  margin-left: 20px;
+  min-width: 320px;
+  flex-basis: calc((100% - 80px) / 4);
+  border: 2px solid rgb(241, 238, 238);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.gallery__link:hover,
+.gallery__link:focus {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.gallery-item__img {
+  display: block;
+  height: 30vh;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.info-item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.btn-load-more.is-hidden {
+  display: none;
+}
+
+.btn-load-more {
+  display: block;
+  margin: 25px auto 0 auto;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  font: inherit;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.btn-to-top {
+  position: fixed;
+  bottom: 3vh;
+  right: 1vw;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fdfdfd;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-load-more:hover,
+.btn-to-top:hover {
+  background-color: #c3c3c3;
+  transition: all 0.3s;
+}
